@@ -1,0 +1,86 @@
+= Knife Oktawave
+
+= DESCRIPTION:
+
+This plugin extends Knife with the ability to manage Oktawave Cloud Instances (OCI).
+
+= INSTALLATION:
+
+This plugin is distributed as Ruby Gem. You can install it by running:
+
+    gem install knife-oktawave
+
+= CONFIGURATION:
+
+This plugin uses the Oktawave API to manage OCI. Knife will need a valid Oktawave
+login and password before it can talk to the API. You can put these in your
+<tt>knife.rb</tt> file:
+
+    knife[:oktawave_login] = 'YOUR_OKTAWAVE_LOGIN'
+    knife[:oktawave_password] = 'YOUR_OKTAWAVE_PASSWORD'
+
+Alternatively, you can supply your credentials to each knife command using the
+<tt>-A</tt> and <tt>-K</tt> (or <tt>--oktawave-login</tt> and
+<tt>--oktawave-password</tt>) options:
+
+    knife oktawave oci list -A YOUR_OKTAWAVE_LOGIN -K YOUR_OKTAWAVE_PASSWORD
+
+= SUBCOMMANDS:
+
+This plugin provides the following Knife subcommands:
+
+== knife oktawave oci list
+
+Shows a list of all instances for your Oktawave account. Note that some of these
+may not be currently managed by Chef server.
+
+== knife oktawave oci show ID
+
+Displays extended information about a selected OCI. Requires an OCI ID (returned
+by "knife oktawave oci list")
+
+== knife oktawave template list
+
+Prints a list of all OCI templates available for tour account. A template's ID is
+required to create an instance. Not all templates support an automatic Chef
+bootstrap, but you can provision any instance with Knife (and perhaps install
+chef-client manually). Refer to the Oktawave documentation for details.
+
+== knife oktawave oci create -T TEMPLATE_ID -N NAME
+
+Creates a new OCI from the selected template and bootstraps Chef on it.
+
+== knife oktawave oci delete ID
+
+Deletes an OCI. Use the <tt>--purge</tt> flag to delete the corresponding Chef
+node and client as well.
+
+== knife oktawave oci power off ID
+
+Shuts down an instance.
+
+== knife oktawave oci power on ID
+
+Starts an instance.
+
+== knife oktawave oci restart ID
+
+Restarts an instance.
+
+= LICENSE:
+
+Author:: Marek Siemdaj (<marek.siemdaj@gmail.com>)
+Copyright:: Copyright (C) 2013 Oktawave
+License:: Apache License, Version 2.0
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
