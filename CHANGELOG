@@ -1,5 +1,9 @@
-0.1.1
+0.1.2
 Fixed Oktawave API compatibility
+
+0.1.1
+Fixed ConnectionTypeId and PaymentTypeId parameters to the CreateVirtualMachine
+API method.
 
 0.1.0
 Initial release
