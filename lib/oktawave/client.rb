@@ -180,7 +180,7 @@ module Oktawave
         soap.namespaces["xmlns:env"] = "http://www.w3.org/2003/05/soap-envelope"
       end 
       @login_response = result.to_hash
-      @client_id = dive(@login_response, [:logon_user_response, :logon_user_result, :_x003_c_client_x003_e_k__backing_field, :client_id])
+      @client_id = dive(@login_response, [:logon_user_response, :logon_user_result, :client, :client_id])
       raise "Login failed" unless @client_id
     end
 
