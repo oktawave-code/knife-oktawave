@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.has_rdoc    = true
   s.authors     = ["Marek Siemdaj"]
   s.email       = ["marek.siemdaj@gmail.com"]
-  s.homepage    = "http://oktawave.com"
+  s.homepage    = "https://github.com/oktawave-code/knife-oktawave"
   s.summary     = "Oktawave cloud support for Chef's Knife"
   s.description = "This plugin extends Knife with the ability to manage Oktawave Cloud Instances (OCI)."
   s.extra_rdoc_files = ["README.rdoc", "LICENSE"]
